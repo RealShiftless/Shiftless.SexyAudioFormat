@@ -1,5 +1,4 @@
 ﻿using Shiftless.Common.Serialization;
-using Shiftless.SexyAudioFormat;
 
 namespace Shiftless.SexyAudioFormat.Serialization
 {
@@ -86,7 +85,7 @@ namespace Shiftless.SexyAudioFormat.Serialization
             uint curLength = 0;
 
             // Loop thruy all samples
-            for(int i = 0; i < samples.Length; i++)
+            for (int i = 0; i < samples.Length; i++)
             {
                 // So if its 0, collect it and continue
                 if (Math.Abs(samples[i]) == 0)

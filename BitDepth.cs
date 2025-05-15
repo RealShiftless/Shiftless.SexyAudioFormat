@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Shiftless.SexyAudioFormat
+﻿namespace Shiftless.SexyAudioFormat
 {
     public enum BitDepth
     {

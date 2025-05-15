@@ -1,5 +1,4 @@
 ﻿using Shiftless.Common.Serialization;
-using Shiftless.SexyAudioFormat;
 
 namespace Shiftless.SexyAudioFormat.Serialization
 {
@@ -30,19 +29,19 @@ namespace Shiftless.SexyAudioFormat.Serialization
             for (int c = 0; c < channelCount; c++)
             {
                 // First do the channel block
-                if(reader.NextString(HEADER_SIZE) != "chan")
+                if (reader.NextString(HEADER_SIZE) != "chan")
                     throw new FileLoadException("Audio file was not of valid SSAF format!");
 
                 uint encodedSamples = reader.NextUInt32();
 
                 // Now the zero run block
-                if(reader.NextString(HEADER_SIZE) != "zre ")
+                if (reader.NextString(HEADER_SIZE) != "zre ")
                     throw new FileLoadException("Audio file was not of valid SSAF format!");
 
                 uint zreHeaderSize = reader.NextUInt32();
                 Queue<(uint offset, uint length)> zrBlockQueue = new();
 
-                for(int i = 0; i < zreHeaderSize; i++)
+                for (int i = 0; i < zreHeaderSize; i++)
                 {
                     uint offset = reader.NextUInt32();
                     uint length = reader.NextUInt32();
@@ -118,11 +117,11 @@ namespace Shiftless.SexyAudioFormat.Serialization
                 }
 
                 // Now unpack it into the ting
-                for(int i = 0; i < sampleCount; i++)
+                for (int i = 0; i < sampleCount; i++)
                 {
                     byte[] bytes = ByteConverter.GetBytes(samples[i]);
 
-                    for(int b = 0; b < bytesPerSample; b++)
+                    for (int b = 0; b < bytesPerSample; b++)
                         data[i * channelCount * bytesPerSample + c * bytesPerSample + b] = bytes[b];
                 }
             }

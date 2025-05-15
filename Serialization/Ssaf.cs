@@ -1,9 +1,4 @@
-﻿using Shiftless.SexyAudioFormat;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Shiftless.SexyAudioFormat.Serialization
+﻿namespace Shiftless.SexyAudioFormat.Serialization
 {
     public static partial class Ssaf
     {
